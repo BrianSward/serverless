@@ -1,9 +1,9 @@
+from http.server import BaseHTTPRequestHandler
 from tkinter import *
 import requests
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
-    def get_quote():
         tom = requests.get(url="https://api.whatdoestrumpthink.com/api/v1/quotes/random")
         tom.raise_for_status()
         print(tom)
