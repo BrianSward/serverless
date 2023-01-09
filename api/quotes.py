@@ -24,7 +24,7 @@ quote_text = canny.create_text(150, 190, text="Smash Face for Genius Talk", widt
 canny.grid(row=0, column=0)
 
 butt_face = PhotoImage(file="trump.png" )
-butt_button = Button(image=butt_face, highlightthickness=0, command=handler.get_quote)
+butt_button = Button(image=butt_face, highlightthickness=0, command=handler.do_GET)
 butt_button.grid(row=1, column=0)
 
 window.mainloop()
