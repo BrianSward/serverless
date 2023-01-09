@@ -4,7 +4,7 @@ import requests
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
-        tom = requests.get(url="https://api.whatdoestrumpthink.com/api/v1/quotes/random")
+        tom = self.requests.get(url="https://api.whatdoestrumpthink.com/api/v1/quotes/random")
         tom.raise_for_status()
         print(tom)
 
