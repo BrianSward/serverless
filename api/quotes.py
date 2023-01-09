@@ -1,15 +1,16 @@
 from tkinter import *
 import requests
 
+class handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+    def get_quote():
+        tom = requests.get(url="https://api.whatdoestrumpthink.com/api/v1/quotes/random")
+        tom.raise_for_status()
+        print(tom)
 
-def get_quote():
-    tom = requests.get(url="https://api.whatdoestrumpthink.com/api/v1/quotes/random")
-    tom.raise_for_status()
-    print(tom)
-
-    data = tom.json()
-    print(data["message"])
-    canny.itemconfig(quote_text, text=data["message"])
+        data = tom.json()
+        print(data["message"])
+        canny.itemconfig(quote_text, text=data["message"])
 
 
 window = Tk()
@@ -23,7 +24,7 @@ quote_text = canny.create_text(150, 190, text="Smash Face for Genius Talk", widt
 canny.grid(row=0, column=0)
 
 butt_face = PhotoImage(file="trump.png" )
-butt_button = Button(image=butt_face, highlightthickness=0, command=get_quote)
+butt_button = Button(image=butt_face, highlightthickness=0, command=handler.get_quote)
 butt_button.grid(row=1, column=0)
 
 window.mainloop()
